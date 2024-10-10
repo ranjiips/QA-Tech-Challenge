@@ -56,27 +56,38 @@ Once you met all the requiste requirements, follow the below commands
 * Create a local folder as per your wish to clone the project [Ex: Project]
 * Open Git Bash from the folder
 * Clone the project by using the command
-> https://github.com/ranjiips/QA-Tech-Challenge.git
+```bash 
+*https://github.com/ranjiips/QA-Tech-Challenge.git 
+```
 * To make sure you have the latest code, run the below git command
-- > git fetch
-- > git pull origin
+```bash 
+git fetch
+git pull origin
+```
 * Install the required libraries from the file "requirements.txt"
 * Enable the pytest test runner by following the below steps**
-```bash
-Select the Edit Configuration under Run menu
-Select + symbol -> Python Tests -> pytest option
-```
+> Select the Edit Configuration under Run menu
+> Select + symbol -> Python Tests -> pytest option
+
 Once all the setup completes, then start execute the test cases by following the below execution commands
 
 **Pytest Execution commands:**
 - **Login test cases:** 
-> python -m pytest tests/login_test.py -v -s --html=reports/loginReport.html  --browser=chrome
+```bash 
+python -m pytest tests/login_test.py -v -s --html=reports/loginReport.html  --browser=chrome
+```
 - **Product Page Test cases**
->python -m pytest tests/inventory_test.py -v -s --html=reports/inventoryReport.html  --browser=chrome
+```bash 
+python -m pytest tests/inventory_test.py -v -s --html=reports/inventoryReport.html  --browser=chrome
+```
 - **Cart Validation Test cases**
->python -m pytest tests/cart_test.py -v -s --html=reports/cartReport.html  --browser=chrome
+```bash 
+python -m pytest tests/cart_test.py -v -s --html=reports/cartReport.html  --browser=chrome
+```
 - **Checkout Test cases**
->python -m pytest tests/checkout_test.py -v -s --html=reports/checkoutReport.html  --browser=chrome
+```bash 
+python -m pytest tests/checkout_test.py -v -s --html=reports/checkoutReport.html  --browser=chrome
+```
 
 ***Command Explanation***
 
@@ -89,9 +100,13 @@ When you run this command, **_pytest_** will:
 + Use Chrome as the browser for the tests, as specified by the **_--browser=chrome_** option.
 
 **To run the test parallely, use the below command** 
->python -m pytest tests/inventory_test.py -v -s -n 3 --html=reports/inventoryReport.html  --browser=chrome
+```bash 
+python -m pytest tests/inventory_test.py -v -s -n 3 --html=reports/inventoryReport.html  --browser=chrome
+```
 
 * **_-n 3_** Run the tests in parallel using 3 worker processes, which can speed up the execution.
 
 **To run the specific marker/tag:**
->python -m pytest -m login
+```bash 
+python -m pytest -m login
+```
