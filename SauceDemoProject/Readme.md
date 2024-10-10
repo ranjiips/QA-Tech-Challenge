@@ -57,7 +57,7 @@ Once you met all the requiste requirements, follow the below commands
 * Open Git Bash from the folder
 * Clone the project by using the command
 ```bash 
-*https://github.com/ranjiips/QA-Tech-Challenge.git 
+https://github.com/ranjiips/QA-Tech-Challenge.git 
 ```
 * To make sure you have the latest code, run the below git command
 ```bash 
@@ -66,8 +66,8 @@ git pull origin
 ```
 * Install the required libraries from the file "requirements.txt"
 * Enable the pytest test runner by following the below steps**
-> Select the Edit Configuration under Run menu
-> Select + symbol -> Python Tests -> pytest option
+  * > Select the Edit Configuration under Run menu
+  * > Select + symbol -> Python Tests -> pytest option
 
 Once all the setup completes, then start execute the test cases by following the below execution commands
 
