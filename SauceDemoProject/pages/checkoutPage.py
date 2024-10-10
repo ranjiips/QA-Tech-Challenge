@@ -11,9 +11,15 @@ from pages.cartPage import CartPage
 
 
 class CheckoutPage(SeleniumDriver):
+    _instance = None
 
-    def __init__(self, driver):
-        super().__init__(driver)
+    def __new__(cls, driver):
+        if cls._instance is None:
+            cls._instance = super(CheckoutPage, cls).__new__(cls)
+            cls._instance._initialize(driver)
+        return cls._instance
+
+    def _initialize(self, driver):
         self.driver = driver
         self.cartPage = CartPage(driver)
 

@@ -12,13 +12,16 @@ import traceback
 from selenium import webdriver
 import os
 
+from utilities.readConfig import ConfigReader
+
+
 class WebDriverFactory():
 
     def __init__(self, browser):
         self.browser = browser
 
     def getWebDriverInstance(self):
-        baseURL = "https://www.saucedemo.com/"
+        baseURL = ConfigReader.getApplicationURL()
         if self.browser == "iexplorer":
             driver = webdriver.Ie()
         elif self.browser == "firefox":

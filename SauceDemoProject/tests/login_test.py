@@ -4,6 +4,11 @@ import unittest
 
 from pages.inventoryPage import InventoryPage
 from pages.loginPage import LoginPage
+# from utilities.readConfig import ReadConfig
+from utilities.readConfig import ConfigReader
+
+# Execution Command:
+# python -m pytest tests/login_test.py -v -s --html=reports/loginReport.html  --browser=chrome
 
 @pytest.mark.usefixtures("oneTimeSetUp", "setUp")
 class LoginTests(unittest.TestCase):
@@ -18,7 +23,9 @@ class LoginTests(unittest.TestCase):
         print("*#" * 20)
         print("Valid Login Test case")
         print("*#" * 20)
-        self.lp.login("standard_user", "secret_sauce")
+        username = ConfigReader.get_Username()
+        password = ConfigReader.get_Password()
+        self.lp.login(username, password)
         self.ip.veriryInventoryHeader()
         self.ip.logout()
 
@@ -27,7 +34,9 @@ class LoginTests(unittest.TestCase):
         print("*#" * 20)
         print("In valid Credentials Test case")
         print("*#" * 20)
-        self.lp.login("locked_out_user", "secret_sauce")
+        username = ConfigReader.get_LockedUsername()
+        password = ConfigReader.get_Password()
+        self.lp.login(username, password)
         errorText = self.lp.getLoginErrorMessage()
         print(f"Error message: {errorText}")
 

@@ -4,6 +4,11 @@ import unittest
 
 from pages.inventoryPage import InventoryPage
 from pages.loginPage import LoginPage
+from utilities.readConfig import ConfigReader
+
+
+# Execution Command:
+# python -m pytest tests/inventory_test.py -v -s --html=reports/inventoryReport.html  --browser=chrome
 
 @pytest.mark.usefixtures("oneTimeSetUp", "setUp")
 class InventoryTests(unittest.TestCase):
@@ -18,7 +23,9 @@ class InventoryTests(unittest.TestCase):
         print("*#" * 20)
         print("Get items as list")
         print("*#" * 20)
-        self.lp.login("standard_user", "secret_sauce")
+        username = ConfigReader.get_Username()
+        password = ConfigReader.get_Password()
+        self.lp.login(username, password)
         self.ip.veriryInventoryHeader()
         itemNames = self.ip.getItemName()
         print("Item Names: ", itemNames)
@@ -30,7 +37,9 @@ class InventoryTests(unittest.TestCase):
         print("*#" * 20)
         print("Verify item in the list")
         print("*#" * 20)
-        self.lp.login("standard_user", "secret_sauce")
+        username = ConfigReader.get_Username()
+        password = ConfigReader.get_Password()
+        self.lp.login(username, password)
         self.ip.veriryInventoryHeader()
         assert self.ip.isItemListed("Sauce Labs Bolt T-Shirt") == True
         self.ip.logout()
@@ -40,7 +49,9 @@ class InventoryTests(unittest.TestCase):
         print("*#" * 20)
         print("Verify InValid item in the list")
         print("*#" * 20)
-        self.lp.login("standard_user", "secret_sauce")
+        username = ConfigReader.get_Username()
+        password = ConfigReader.get_Password()
+        self.lp.login(username, password)
         self.ip.veriryInventoryHeader()
         assert self.ip.isItemListed("Sauce Labs Bolt Shorts") == False
         self.ip.logout()
@@ -50,7 +61,9 @@ class InventoryTests(unittest.TestCase):
         print("*#" * 20)
         print("Add Item into Cart")
         print("*#" * 20)
-        self.lp.login("standard_user", "secret_sauce")
+        username = ConfigReader.get_Username()
+        password = ConfigReader.get_Password()
+        self.lp.login(username, password)
         self.ip.veriryInventoryHeader()
         assert self.ip.addItemIntoCart("Sauce Labs Bolt T-Shirt") == True
         assert self.ip.addItemIntoCart("Sauce Labs Bike Light") == True
@@ -63,7 +76,9 @@ class InventoryTests(unittest.TestCase):
         print("*#" * 20)
         print("Remove Item from Cart")
         print("*#" * 20)
-        self.lp.login("standard_user", "secret_sauce")
+        username = ConfigReader.get_Username()
+        password = ConfigReader.get_Password()
+        self.lp.login(username, password)
         self.ip.veriryInventoryHeader()
         print(f"Cart Count: {self.ip.getCartCount()}")
         assert self.ip.removeItemFromCart("Sauce Labs Bolt T-Shirt") == True

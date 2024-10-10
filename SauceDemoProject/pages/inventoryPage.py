@@ -9,9 +9,15 @@ from pages.loginPage import LoginPage
 
 
 class InventoryPage(SeleniumDriver):
+    _instance = None
 
-    def __init__(self, driver):
-        super().__init__(driver)
+    def __new__(cls, driver):
+        if cls._instance is None:
+            cls._instance = super(InventoryPage, cls).__new__(cls)
+            cls._instance._initialize(driver)
+        return cls._instance
+
+    def _initialize(self, driver):
         self.driver = driver
 
     # locators

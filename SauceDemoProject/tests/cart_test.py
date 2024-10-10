@@ -7,6 +7,9 @@ from pages.loginPage import LoginPage
 from pages.checkoutPage import CheckoutPage
 from pages.cartPage import CartPage
 
+# Execution Command:
+# python -m pytest tests/cart_test.py -v -s --html=reports/cartReport.html  --browser=chrome
+
 @pytest.mark.usefixtures("oneTimeSetUp", "setUp")
 class CheckoutTests(unittest.TestCase):
 
