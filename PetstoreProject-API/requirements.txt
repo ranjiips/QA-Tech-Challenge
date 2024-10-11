@@ -1,7 +1,0 @@
-pip install pip
-pip install pytest
-pip install requests
-pip install pytest-ordering
-pip install pytest-xdist
-pip install pytest-html
-pip install --upgrade certifi

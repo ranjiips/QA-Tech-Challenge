@@ -1,8 +1,0 @@
-{
-  "id": 0,
-  "petId": PET_ID_VALUE,
-  "quantity": ORDER_QUANTITY,
-  "shipDate": "SHIP_DATE_VALUE",
-  "status": "ORDER_STATUS",
-  "complete": true
-}
